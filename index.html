@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato do desenvolvedor </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <link rel="icon" href="Images/avatar.jpg" type="image/x-icon">
+
+
+</head>
+<style>
+    * {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+        -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+        outline: none !important;
+    }
+</style>
+
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="Images/ENTRADA.jpg" alt="Bem-vindo" class="splash-img">
+            <div class="splash-text">Bem-vindo!<br>Obrigado por sua visita, fique a vontade para explorar!</div>
+        </div>
+    </div>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+    <div class="card">
+        <div class="profile reveal">
+            <div class="avatar-glow">
+                <img src="Images/avatar.jpg" alt="Profile Image" class="profile-image">
+            </div>
+            <h1 class="header-name">XJHOWX</h1>
+            <div class="subtitle">Link's Úteis</div>
+        </div>
+        <div class="contact-grid reveal">
+            <a href="https://www.seusite.com" class="contact-btn" target="_blank">
+                <i class="fa-solid fa-globe icon"></i>
+                <span>Site</span>
+            </a>
+            <a href="https://www.etsy.com/" class="contact-btn" target="_blank">
+                <i class="fa-brands fa-etsy icon"></i>
+                <span>Etsy</span>
+            </a>
+            <a href="https://www.kaleido.ai/" class="contact-btn" target="_blank">
+                <i class="fa-solid fa-layer-group icon"></i>
+                <span>Kaleido</span>
+            </a>
+            <a href="https://www.rednote.com/" class="contact-btn" target="_blank">
+                <i class="fa-solid fa-book icon"></i>
+                <span>Rednote</span>
+            </a>
+            <a href="https://www.youtube.com/" class="contact-btn" target="_blank">
+                <i class="fa-brands fa-youtube icon"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.pinterest.com/" class="contact-btn" target="_blank">
+                <i class="fa-brands fa-pinterest icon"></i>
+                <span>Pinterest</span>
+            </a>
+            <a href="https://www.instagram.com/" class="contact-btn" target="_blank">
+                <i class="fa-brands fa-instagram icon"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/" class="contact-btn" target="_blank">
+                <i class="fa-brands fa-facebook icon"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="mailto:seuemail@email.com" class="contact-btn">
+                <i class="fa-regular fa-envelope icon"></i>
+                <span>E-mail</span>
+            </a>
+        </div>
+        <footer class="footer">
+            <span>Feito com ❤️ por XJHOWX &middot; 2025</span>
+        </footer>
+
+    </div>
+    <script>
+        // Splash Screen Logic
+        window.addEventListener('DOMContentLoaded', function () {
+            const splash = document.getElementById('splash-screen');
+            const loadingScreen = document.getElementById('loading-screen');
+            document.body.style.overflow = 'hidden';
+            setTimeout(function () {
+                splash.classList.add('hide');
+                setTimeout(function () {
+                    splash.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 900); // tempo do fade-out
+            }, 2000); // tempo que a splash fica visível
+        });
+
+        window.addEventListener('load', function () {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(function () {
+                loadingScreen.style.display = 'none';
+            }, 1000);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = function () {
+                for (let i = 0; i < elements.length; i++) {
+                    let windowHeight = window.innerHeight;
+                    let elementTop = elements[i].getBoundingClientRect().top;
+                    let elementVisible = 150;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        elements[i].classList.add('reveal-active');
+                    } else {
+                        elements[i].classList.remove('reveal-active');
+                    }
+                }
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check on page load
+        });
+    </script>
+</body>
+
+</html>
